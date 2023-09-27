@@ -1,0 +1,30 @@
+hydra:
+  output_subdir: null  
+  run:
+    dir: .
+
+defaults:
+  - process: fuel_prediction
+  - model: osl
+  - _self_
+
+data:
+  raw:
+    eur_usd: data/raw/eur_usd_conversions.csv
+    oil_prices: data/raw/oil_prices.csv
+  processed: data/processed/X_y_data.pickle
+  final: data/final/final.csv
+
+aws:
+  profile: my-dev-profile
+  ec2_tags:
+    Name: mlflow-server
+    Owner: Emile
+mlflow:
+  port: 5000
+  experiment: dutch-fuel-prediction
+
+metric_names:
+  mean_absolute_error: mean-absolute-error
+  mean_squared_error: mean-squared-error
+  r2_score: r2-score

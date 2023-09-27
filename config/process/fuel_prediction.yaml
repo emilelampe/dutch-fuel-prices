@@ -1,0 +1,71 @@
+names:
+  date: Date
+  eu95: Eu95
+  eur_usd: EUR_USD
+  oil_eur: Oil
+  oil_usd: Oil_USD
+
+target: ${process.names.eu95}
+
+# this gives an error, so var interpolation in a list is apparantly not yet supported
+# features:
+#   - ${process.names.oil_eur}
+#   - ${process.names.oil_eur}_short_lag
+#   - ${process.names.oil_eur}_long_lag
+#   - ${process.names.oil_eur}_delta
+#   - ${process.names.eu95}_short_lag
+#   - ${process.names.eu95}_long_lag
+#   - ${process.names.eu95}_delta
+
+# 'features' with the hard-coded variables
+features:
+  - Oil
+  - Oil_short_lag
+  - Oil_long_lag
+  - Oil_delta
+  - Eu95_short_lag
+  - Eu95_long_lag
+  - Eu95_delta
+
+first_training_date: 2022-01-01
+
+days:
+  predict: 14
+  rolling: 7
+  short_lag: 7
+  long_lag: 14
+
+cbs:
+  code: 80416ned
+  cache: True
+  cache_dir: data/raw/cbs_cache
+  drop_columns:
+    - ID
+    - Diesel_2
+    - Lpg_3
+  names:
+    date: Perioden
+    target: BenzineEuro95_1
+    data_properties: DataProperties
+
+oil_conv:
+  names:
+    eur_usd: Price_USD
+    oil_usd: Price
+  # again, has to be hard-coded for now
+  # columns:
+  #   - ${process.names.oil_eur}
+  #   - ${process.names.oil_usd}
+  #   - ${process.names.eur_usd}
+  #   - ${process.date}
+  columns:
+    - Oil
+    - Oil_USD
+    - EUR_USD
+    - Date
+
+suffixes:
+  short_lag: _short_lag
+  long_lag: _long_lag
+  smoothed: _smoothed
+  delta: _delta
