@@ -1,5 +1,12 @@
-"""
-This is script trains the model using the data that is processed in process.py.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    dra to access the parameters in under the directory config.
+"""This is script trains the model using the data that is processed in process.py.
+
+It has the following functions:
+    * main_flow - function from which the flow starts
+    * configure_mlflow - configures MLflow on the EC2 instance
+    * load_data - loads the processed data
+    * train_model - trains the model
+    * evaluate_model - returns the scores of the model
+    * make_prefect_report - makes a report of the results for Prefect
 
 Author: Emile Lampe
 """
