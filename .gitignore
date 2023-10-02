@@ -95,5 +95,8 @@ outputs
 # mlflow runs
 notebooks/mlruns
 
+# exploration files
+notebooks/exploring
+
 # Zone Identifiers
 *:Zone.Identifier
