@@ -97,3 +97,6 @@ notebooks/mlruns
 
 # Zone Identifiers
 *:Zone.Identifier
+
+# Exploration notebooks
+notebooks/exploring

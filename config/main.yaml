@@ -16,7 +16,7 @@ data:
   final: data/final/final.csv
 
 aws:
-  profile: my-dev-profile
+  profile: dev
   ec2_tags:
     Name: mlflow-server
     Owner: Emile

@@ -20,3 +20,6 @@ docs:
 	pdoc src -o docs --force
 	@echo View API documentation...
 	pdoc src --http localhost:8080
+
+reqs:
+	poetry export -f requirements.txt --output requirements.txt --without-hashes
